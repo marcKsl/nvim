@@ -1,7 +1,9 @@
-vim.g.mapleader = " "  -- Leertaste als "Leader"-Taste festlegen
+vim.g.mapleader = " " -- Leertaste als "Leader"-Taste festlegen
 
 -- Öffnet den Netrw-Dateibrowser (Ex)
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+vim.keymap.set("n", "<leader>pv", [[:NvimTreeToggle<CR>]], { silent = true })
 
 -- Springt zum nächsten Suchergebnis und zentriert die Ansicht
 vim.keymap.set("n", "n", "<leader>sd")
@@ -16,13 +18,13 @@ vim.keymap.set("n", "<leader>lspr", "<cmd>LspRestart<cr>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Kopiert in die System-Zwischenablage (normaler und visueller Modus)
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- Kopiert die gesamte Zeile in die System-Zwischenablage (normaler Modus)
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Löscht den Text, ohne ihn in die Zwischenablage zu kopieren (normaler und visueller Modus)
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Deaktiviert die `Q`-Taste im normalen Modus (Q wird oft versehentlich gedrückt)
 vim.keymap.set("n", "Q", "<nop>")
@@ -43,7 +45,10 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Suchen und Ersetzen des Wortes unter dem Cursor im gesamten Dokument
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Speicher des aktuellen Buffers
+vim.keymap.set("n", "<leader>s", [[:w<CR>]], { silent = false })
 
 -- Macht die aktuelle Datei ausführbar
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

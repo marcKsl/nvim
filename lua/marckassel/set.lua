@@ -1,3 +1,8 @@
+-- Tree configuration
+-- Disable netrw to use tree instead
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Set the cursor shape for GUI mode. An empty string means default cursor shape.
 vim.opt.guicursor = ""
 
@@ -56,7 +61,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 -- Set the time (in milliseconds) that Neovim will wait before triggering an event (e.g., when typing).
-vim.opt.updatetime = 50
+vim.opt.updatetime = 0
 
 -- Highlight the column at the 80th character position to help with line length.
 vim.opt.colorcolumn = "80"

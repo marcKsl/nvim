@@ -6,5 +6,6 @@ return {
     },
 
     "eandrju/cellular-automaton.nvim",
+    'nvim-tree/nvim-web-devicons',
 }
 

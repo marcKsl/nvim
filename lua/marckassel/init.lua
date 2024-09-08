@@ -1,6 +1,6 @@
 require("marckassel.set")  -- Lädt benutzerdefinierte Einstellungen
 require("marckassel.remap")  -- Lädt benutzerdefinierte Tastenkürzel
-require("marckassel.lazy_init")  -- Lädt Lazy.nvim Konfiguration
+require("marckassel.lazy_init") -- Lädt Lazy-Plugins
 
 --e eErstellen von Autogruppen für bessere Strukturierung
 local augroup = vim.api.nvim_create_augroup
@@ -11,13 +11,6 @@ local yank_group = augroup('HighlightYank', {})  -- Gruppe für die Yank-Hervorh
 function R(name)
     require("plenary.reload").reload_module(name)
 end
-
--- Hinzufügen neuer Dateitypen basierend auf Dateiendungen
-vim.filetype.add({
-    extension = {
-        templ = 'templ',  -- Dateien mit der Endung .templ als 'templ' Dateityp behandeln
-    }
-})
 
 -- Automatisches Hervorheben von kopiertem Text (Yank)
 local autocmd = vim.api.nvim_create_autocmd
@@ -69,5 +62,5 @@ autocmd('LspAttach', {
 
 -- Netrw Konfigurationen
 vim.g.netrw_browse_split = 0  -- Kein automatisches Splitten beim Browsen
-vim.g.netrw_banner = 0  -- Banner im Netrw-Explorer deaktivieren
+vim.g.netrw_banner = 1  -- Banner im Netrw-Explorer deaktivieren
 

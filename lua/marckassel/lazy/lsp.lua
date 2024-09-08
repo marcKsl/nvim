@@ -29,6 +29,8 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "tsserver",  -- TypeScript/JavaScript server
+                "eslint"     -- Optional: For linting and formatting with ESLint
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -66,6 +68,16 @@ return {
                             }
                         }
                     }
+                end,
+
+                ["tsserver"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.tsserver.setup({
+                        capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            -- Optional: Custom on_attach function for tsserver
+                        end,
+                    })
                 end,
             }
         })
@@ -105,3 +117,4 @@ return {
         })
     end
 }
+
