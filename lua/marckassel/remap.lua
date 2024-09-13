@@ -1,15 +1,14 @@
 vim.g.mapleader = " " -- Leertaste als "Leader"-Taste festlegen
 
+-- Bindet Escape ebenfalls auf STRG-C im Einfügemodus
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
 -- Öffnet den Netrw-Dateibrowser (Ex)
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Fenster vertikal splitten
+vim.keymap.set("n", "<C-w>d", "[[:vsplit<CR>]]")
 
 vim.keymap.set("n", "<leader>pv", [[:NvimTreeToggle<CR>]], { silent = true })
-
--- Springt zum nächsten Suchergebnis und zentriert die Ansicht
-vim.keymap.set("n", "n", "<leader>sd")
-
--- Springt zum vorherigen Suchergebnis und zentriert die Ansicht
-vim.keymap.set("n", "N", "<leader>as")
 
 -- Startet den LSP neu (Leader + lspr)
 vim.keymap.set("n", "<leader>lspr", "<cmd>LspRestart<cr>")
@@ -19,6 +18,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Kopiert in die System-Zwischenablage (normaler und visueller Modus)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+
+-- Deaktiviert das Highlight der Suchen
+vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>")
 
 -- Kopiert die gesamte Zeile in die System-Zwischenablage (normaler Modus)
 vim.keymap.set("n", "<leader>Y", [["+Y]])

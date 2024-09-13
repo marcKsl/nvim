@@ -91,10 +91,10 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<Up>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<Down>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
+                ['<C-S>k'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<C-S>j'] = cmp.mapping.select_next_item(cmp_select),
+                ['<C-S>l'] = cmp.mapping.confirm({ select = true }),
+                ["<C-S>h"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
